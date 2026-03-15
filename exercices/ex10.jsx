@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"
 
 function App() {
 
@@ -9,9 +9,9 @@ function App() {
   ])
 
   const handleDiscount = (id) => {
-    setProducts(
+    setProducts( 
       products.map((product) => {
-        if(product.id === id){
+        if(product.id === id ){
           return {...product, price: product.price - 100}
         }
         return product
@@ -19,37 +19,14 @@ function App() {
     )
   }
 
-  const handleDelete = (id) => {
-    setProducts(
-      products.filter(product => product.id !== id)
-    )
-  }
-
-  const hadnleAdd = () => {
-    const newProduct = { id: 4, title: "Samsung", price: 4000 }
-
-    setProducts([...products, newProduct])
-  
-  }
-
-
   return(
     <div>
       {products.map((product) => (
         <div key={product.id}>
           <p>{product.title}</p>
-          <p>price: {product.price}</p>
-
+          <p>{product.price}</p>
           <button onClick={() => handleDiscount(product.id)}>
             discount -100
-          </button>
-
-          <button onClick={() => handleDelete(product.id)}>
-            delete
-          </button>
-
-          <button onClick={hadnleAdd}>
-            add Samsung
           </button>
         </div>
       ))}
