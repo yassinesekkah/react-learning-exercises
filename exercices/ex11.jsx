@@ -25,14 +25,6 @@ function App() {
     )
   }
 
-  const hadnleAdd = () => {
-    const newProduct = { id: 4, title: "Samsung", price: 4000 }
-
-    setProducts([...products, newProduct])
-  
-  }
-
-
   return(
     <div>
       {products.map((product) => (
@@ -46,10 +38,6 @@ function App() {
 
           <button onClick={() => handleDelete(product.id)}>
             delete
-          </button>
-
-          <button onClick={hadnleAdd}>
-            add Samsung
           </button>
         </div>
       ))}
