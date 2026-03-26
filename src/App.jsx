@@ -1,60 +1,30 @@
-import { useState } from "react";
+import Header from "./components/Header";
 
-function App() {
-
-  const [products, setProducts] = useState([
-    { id: 1, title: "iPhone", price: 1000 },
-    { id: 2, title: "Macbook", price: 2000 },
-    { id: 3, title: "Playstation", price: 800 }
-  ])
-
-  const handleDiscount = (id) => {
-    setProducts(
-      products.map((product) => {
-        if(product.id === id){
-          return {...product, price: product.price - 100}
-        }
-        return product
-      })
-    )
-  }
-
-  const handleDelete = (id) => {
-    setProducts(
-      products.filter(product => product.id !== id)
-    )
-  }
-
-  const hadnleAdd = () => {
-    const newProduct = { id: 4, title: "Samsung", price: 4000 }
-
-    setProducts([...products, newProduct])
-  
-  }
-
-
-  return(
-    <div>
-      {products.map((product) => (
-        <div key={product.id}>
-          <p>{product.title}</p>
-          <p>price: {product.price}</p>
-
-          <button onClick={() => handleDiscount(product.id)}>
-            discount -100
-          </button>
-
-          <button onClick={() => handleDelete(product.id)}>
-            delete
-          </button>
-
-          <button onClick={hadnleAdd}>
-            add Samsung
-          </button>
-        </div>
-      ))}
-    </div>
+function Footer(){
+  return (
+    <>
+      <p>This is the footer</p>
+    </>
   )
 }
 
+function Main(){
+  return(
+    <>
+      <p>This is the main content</p>
+    </> 
+  )
+}
+
+function App(){
+  let bool = "man" < "woman";
+  return(
+    <div style={{color: "red", backgroundColor: "green", fontSize: "20px"}}>
+      <h1>My react app</h1>
+      { bool && <Header   text="This is the header" des="des " /> }
+      <Main />
+      <Footer />
+    </div>
+  )
+}
 export default App;
